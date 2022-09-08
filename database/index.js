@@ -24,4 +24,10 @@ let save = (word) => {
   return newWord.save();
 }
 
+let getDef = () => {
+  return Dict
+    .find({})
+}
+
 module.exports.save = save;
+module.exports.getDef = getDef;

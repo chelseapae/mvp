@@ -2,11 +2,8 @@ const axios = require('axios');
 const config = require('../config.js');
 
 let getDefByWord = (word) => {
-  // TODO - Use the axios module to request repos for a specific
-  // user from the github API
+  //The axios module is used to request def for a specific word from the webster API
   console.log('getDefByWord', word)
-  // The options object has been provided to help you out,
-  // but you'll have to fill in the URL
   let options = {
     url: `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=d193d950-efdd-4dd1-9e8d-42f260aaf28d`,
     headers: {

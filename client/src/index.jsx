@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from 'jquery';
-import exampleData from '../../excuseData.js';
 import Search from './components/Search.jsx';
 
 class App extends React.Component {
@@ -17,7 +16,7 @@ class App extends React.Component {
     <div>
       <h2>Excuse Generator</h2>
       <p>Need a good excuse? Use our random excuse generator to keep your excuses fresh</p>
-      <Search onSearch={this.search.bind(this)}/>
+      {/* <Search onSearch={this.search.bind(this)}/> */}
       {/* {exampleData.map((example) => {
         return example.excuse
         })}
