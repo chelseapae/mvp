@@ -1,5 +1,9 @@
 import React from 'react';
 
+const onSubmit = (e) => {
+  console.log(e)
+}
+
 export default function Form() {
   return(
     <div className="form">
