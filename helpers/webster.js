@@ -5,14 +5,15 @@ let getDefByWord = (word) => {
   //The axios module is used to request def for a specific word from the webster API
   console.log('getDefByWord', word)
   let options = {
-    url: `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=d193d950-efdd-4dd1-9e8d-42f260aaf28d`,
+    url: `https://www.dictionaryapi.com/api/v3/references/learners/json/${word}?key=${config.TOKEN}`,
     headers: {
       'User-Agent': 'request',
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `${config.TOKEN}`
     }
   };
   return axios.get(options.url, options.headers)
     .then(res => {
+      console.log('RES', res)
       return res.data;
     })
     .catch(err => {
@@ -21,3 +22,7 @@ let getDefByWord = (word) => {
 }
 
 module.exports.getDefByWord = getDefByWord;
+
+//, options.headers
+//`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${config.TOKEN}`,
+//`https://www.dictionaryapi.com/api/v3/references/learners/json/${word}?key=${config.TOKEN}`,

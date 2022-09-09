@@ -17,13 +17,13 @@ class Search extends React.Component {
   }
 
   search() {
-    console.log('this.state.excuse', this.state.word)
+    console.log('this.state.word', this.state.word)
     this.props.onSearch(this.state.word);
   }
 
   render() {
     return (<div>
-      Enter in a word: <input value={this.state.term} onChange={this.onChange}/>
+      Enter in a word: <input value={this.state.word} onChange={this.onChange}/>
       <button onClick={this.search}> Search </button>
     </div>)
   }

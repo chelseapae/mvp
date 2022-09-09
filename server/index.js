@@ -12,10 +12,10 @@ app.use(express.urlencoded({ extended: false }))
 
 app.post('/', function (req, res) {
   // This route takes the word provided and gets the definiton from the webster API, then saves to the DB
-  //console.log('POSTREQ', req.body)
-  getReposByUsername(req.body.term)
+  console.log('POSTREQ', req.body.word)
+  getDefByWord(req.body.word)
     .then (data => {
-      //console.log('DATAAA', data)
+      console.log('DATAAA', data[0].meta.shortdef)
       save(data)
       res.status(201).send('App.Post Successfully saved to DB');
     })
@@ -25,9 +25,7 @@ app.post('/', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-  // TODO - your code here!
-  // This route should send back the top 25 repos
-  // console.log('------------------------------------------------------> req', req.body.term)
+  // This route should send back the definition
   getDef()
     .then(data => {
       console.log('DEFINITION', data)
