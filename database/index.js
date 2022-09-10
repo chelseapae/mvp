@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/dictionary', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/mood', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 let dictSchema = mongoose.Schema({
@@ -7,27 +7,19 @@ let dictSchema = mongoose.Schema({
     type: Number,
     unique: true
   },
-  word: String,
-  definition: String,
-  synonyms: String
+  mood: String,
+  date: String
 });
 
-let Dict = mongoose.model('Dict', dictSchema);
+let Mood = mongoose.model('Mood', moodSchema);
 
-let save = (word) => {
-  let newWord = new Word({
-    id: word.id,
-    word: word.word,
-    definition: word.definition,
-    synonyms: word.synonyms
+let save = (mood) => {
+  let newMood = new Mood({
+    id: mood.id,
+    mood: mood.moood,
+    date: mood.date
   });
-  return newWord.save();
-}
-
-let getDef = () => {
-  return Dict
-    .find({})
+  return newMood.save();
 }
 
 module.exports.save = save;
-module.exports.getDef = getDef;
